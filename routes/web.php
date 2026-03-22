@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AtkController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JasaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('categories', CategoryController::class);
     Route::resource('atk', AtkController::class);
+    Route::resource('jasa', JasaController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
