@@ -22,7 +22,7 @@
             <div class="pt-4 pb-1">
                 <p class="px-4 text-xs font-bold tracking-wider text-gray-400 uppercase">Master Data</p>
             </div>
-            <a href="#"
+            <a href="{{ route('categories.index') }}"
                 class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900">
                 Kategori
             </a>
