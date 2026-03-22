@@ -40,12 +40,12 @@
             <div class="pt-4 pb-1">
                 <p class="px-4 text-xs font-bold tracking-wider text-gray-400 uppercase">Transaksi</p>
             </div>
-            <a href="#"
-                class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900">
+            <a href="{{ route('pos.index') }}"
+                class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('pos.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
                 Kasir (POS)
             </a>
-            <a href="#"
-                class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900">
+            <a href="{{ route('transactions.index') }}"
+                class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('transactions.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
                 Riwayat Transaksi
             </a>
         @endif
