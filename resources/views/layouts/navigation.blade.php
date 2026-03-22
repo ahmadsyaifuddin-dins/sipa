@@ -23,11 +23,11 @@
                 <p class="px-4 text-xs font-bold tracking-wider text-gray-400 uppercase">Master Data</p>
             </div>
             <a href="{{ route('categories.index') }}"
-                class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900">
+                class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('categories.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
                 Kategori
             </a>
-            <a href="#"
-                class="flex items-center px-4 py-2.5 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-900">
+            <a href="{{ route('atk.index') }}"
+                class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('atk.*') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
                 Barang ATK
             </a>
             <a href="#"
