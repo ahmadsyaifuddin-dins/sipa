@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AtkController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JasaController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\PrintController;
@@ -9,18 +10,22 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth.login');
+    // Cek apakah user sudah memiliki sesi login yang aktif
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+
+    // Jika belum login, lemparkan ke route login bawaan Breeze
+    return redirect()->route('login');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    // Dashboard (Bisa diakses semua role)
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // ==========================================
     // 1. SEMUA ROLE BISA AKSES (Admin, Kasir, Pemilik)
